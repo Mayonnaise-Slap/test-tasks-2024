@@ -51,6 +51,7 @@ def get_best_performing_day(variant_name: str) -> None:
 
     # casting to not have trailing .0
     filtered_data = filtered_data.astype(int)
+    filtered_data.sort_index(inplace=True, ascending=True)
     # I leaved index to be True because in my case timestamp is the index itself
     filtered_data.to_csv('output.csv',
                          sep='\t')
